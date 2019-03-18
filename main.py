@@ -4,6 +4,9 @@ import requests
 from dotenv import load_dotenv
 
 
+GROUP_ID = 179723123
+
+
 def load_image(url):
     response = requests.get(url)
     file_name = os.path.split(url)[-1]
@@ -27,7 +30,7 @@ def get_comics_info(id):
 def get_upload_server_url(token):
     api_url = "https://api.vk.com/method/photos.getWallUploadServer"
     params = {
-        "group_id": 179723123,
+        "group_id": GROUP_ID,
         "access_token": token,
         "v": 5.92
     }
@@ -36,12 +39,12 @@ def get_upload_server_url(token):
 
 
 def upload_image(url, image_name):
-    file_descriptor = open(image_name, "rb")
-    files = {
-        "photo": file_descriptor,
-        "group_id": 179723123
-    }
-    response = requests.post(url, files=files)
+    with open(image_name, "rb") as file_descriptor:
+        files = {
+            "photo": file_descriptor,
+            "group_id": GROUP_ID
+        }
+        response = requests.post(url, files=files)
     return response.json()
 
 
@@ -50,7 +53,7 @@ def save_image_to_album(token, photo_object):
     params = {
         "access_token": token,
         "v": 5.92,
-        "group_id": 179723123,
+        "group_id": GROUP_ID,
         "photo": photo_object['photo'],
         "server": photo_object['server'],
         "hash": photo_object["hash"]
