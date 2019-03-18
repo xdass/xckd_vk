@@ -4,10 +4,12 @@ This App helps you to post random comics from xckd to your VK public.
 
 ### How to install
 
-1. You need to create VK App (https://vk.com/apps?act=manage). Choose Standalone type of app.
-2. Get access token using Implicit flow (https://vk.com/dev/implicit_flow_user). In scope parameter use: photos,groups,wall,offline
+1. You need to [create VK App](https://vk.com/apps?act=manage). Choose Standalone type of app.
+2. Get access token using [Implicit flow](https://vk.com/dev/implicit_flow_user). In scope parameter use: photos,groups,wall,offline
 3. Create .env file and add access_token=your_token from Step 2
 4. Install dependencies (written below)
+
+Note: Comics download from [xckd docs](https://xkcd.com/json.html)
 
 Python3 should be already installed. 
 Then use `pip` (or `pip3`, if there is a conflict with Python2) to install dependencies:
