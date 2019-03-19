@@ -67,7 +67,7 @@ def post_image_to_wall(token, media_id, owner_id, message):
     params = {
         "access_token": token,
         "v": 5.92,
-        "owner_id": -179723123,
+        "owner_id": -GROUP_ID,
         "from_group": 1,
         "message": message,
         "attachments": [
